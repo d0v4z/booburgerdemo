@@ -34,7 +34,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .pill.fire:hover{background:#ff6f3a}
 .pill.ghost{border:1.5px solid rgba(246,236,217,.35)}
 .pill.ghost:hover{border-color:var(--cream)}
-@media (max-width:820px){.links{display:none}.nav .pill{padding:10px 16px;font-size:14px}}
+@media (max-width:820px){.nav .pill{padding:9px 15px;font-size:14px}}
 
 /* ---------- HERO ---------- */
 .hero{position:relative;height:100svh;min-height:620px;overflow:hidden;background:#000;isolation:isolate}
@@ -377,3 +377,18 @@ html[dir=rtl] .sc-dots{right:auto;left:16px}
 .snd.icon{padding:8px}
 .snd.call::before{inset:-4px}
 @supports (overflow:clip){html,body{overflow-x:clip}}
+
+/* ---------- mobile nav row (Menu · Story · Fro3na) ---------- */
+@media (max-width:820px){
+  .nav{flex-wrap:wrap;row-gap:6px;padding-bottom:8px}
+  .nav .pill{padding:9px 15px;font-size:14px}
+  .links{display:flex;order:3;width:100%;justify-content:center;gap:8px;font-size:13px}
+  .links a{opacity:1;padding:6px 14px;border-radius:999px;background:rgba(246,236,217,.08);border:1px solid var(--line)}
+  .nav .links a.act{background:var(--flame);color:#140a05;border-color:var(--flame)}
+  .nav:not(.solid) .links a{background:rgba(13,11,10,.45);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+  .snd{top:calc(112px + env(safe-area-inset-top))}
+  .chipbar{top:108px}
+  .menu-page{padding-top:140px}
+  main[data-page="story"] .story{padding-top:140px}
+  .show .reel{top:120px}
+}

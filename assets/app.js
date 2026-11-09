@@ -240,7 +240,7 @@
       if (!heroStarted) { heroStarted = true; start(true); } else if (!modal.classList.contains('on')) v.play().catch(() => {});
     } else { v.pause(); }
     if (anchor === 'branches') {
-      const go = () => { const b = document.getElementById('branches'); scrollTo({ top: b.getBoundingClientRect().top + scrollY - 70, behavior: 'instant' }); };
+      const go = () => { const b = document.getElementById('branches'); scrollTo({ top: b.getBoundingClientRect().top + scrollY - (innerWidth <= 820 ? 110 : 70), behavior: 'instant' }); };
       requestAnimationFrame(go); setTimeout(go, 400);
     }
     else if (!keepScroll) scrollTo({ top: 0, behavior: 'instant' });
@@ -290,14 +290,14 @@
   document.getElementById('tabs').addEventListener('click', e => {
     const b = e.target.closest('.tab'); if (!b) return;
     const g = document.getElementById('g_' + b.dataset.f);
-    if (g) scrollTo({ top: g.getBoundingClientRect().top + scrollY - 140, behavior: 'smooth' });
+    if (g) scrollTo({ top: g.getBoundingClientRect().top + scrollY - (innerWidth <= 820 ? 170 : 140), behavior: 'smooth' });
   });
   // highlight the chip of the section you're reading
   const chips = [...document.querySelectorAll('#tabs .tab')];
   function syncChips() {
     if (page !== 'menu') return;
     let cur = chips[0];
-    chips.forEach(c => { const g = document.getElementById('g_' + c.dataset.f); if (g && g.getBoundingClientRect().top < 200) cur = c; });
+    chips.forEach(c => { const g = document.getElementById('g_' + c.dataset.f); if (g && g.getBoundingClientRect().top < 230) cur = c; });
     chips.forEach(c => c.classList.toggle('on', c === cur));
   }
   addEventListener('scroll', syncChips, { passive: true });
