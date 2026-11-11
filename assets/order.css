@@ -7,7 +7,7 @@
 .o-step .o-add i{font-style:normal;width:30px;height:30px;border-radius:50%;background:var(--o-acc);color:var(--o-acc-ink);display:grid;place-items:center;font-size:20px;line-height:1;transition:transform .25s}
 .o-step .o-add:hover i{transform:rotate(90deg)}
 .o-step .o-m,.o-step .o-p{width:40px;font-size:22px;font-weight:800}
-.o-step .o-q{min-width:22px;text-align:center;font-weight:900;font-size:16px}
+.o-step .o-q,.o-step b.o-q{min-width:22px;text-align:center;font-weight:900;font-size:16px!important;color:inherit!important;font-family:inherit!important;line-height:1}
 .o-step button:active{transform:scale(.88)}
 .o-pop{animation:oPop .35s cubic-bezier(.3,1.8,.5,1)}
 @keyframes oPop{0%{transform:scale(.5)}100%{transform:scale(1)}}
