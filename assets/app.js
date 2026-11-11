@@ -101,8 +101,14 @@
   const usd = l => { const v = l / RATE; return '$' + (Number.isInteger(v) ? v : (Math.round(v * 10) / 10)); };
   const lbpFmt = (l, sfx) => l.toLocaleString('en-US') + ' ' + sfx;
   const oid = (k, n) => k + '-' + n.toLowerCase().replace(/[^a-z0-9]+/g, '-');
-  const ORDER_ITEMS = [{ id: 'tray', n: 'Tray of Happiness', p: 2970000, img: 'assets/img/tray.jpg', kg: true }];
-  for (const k in MENU) MENU[k].forEach(([n, d, l, p]) => ORDER_ITEMS.push({ id: oid(k, n), n, p: l, img: PH[p] || null, kg: k === 'kg' }));
+  /* admin panel changes (price, photo, sold out) saved in this browser */
+  const OVR = (window.Order && Order.overrides) ? Order.overrides('boo-cart') : {};
+  for (const k in MENU) MENU[k].forEach(r => { const o = OVR[oid(k, r[0])]; if (!o) return; if (o.p != null) r[2] = o.p; if (o.img) { PH['ov:' + oid(k, r[0])] = o.img; r[3] = 'ov:' + oid(k, r[0]); } });
+  const TRAY = Object.assign({ p: 2970000, img: 'assets/img/tray.jpg' }, OVR.tray || {});
+  const ORDER_ITEMS = [{ id: 'tray', n: 'Tray of Happiness', p: TRAY.p, img: TRAY.img, kg: true, off: !!TRAY.off }];
+  for (const k in MENU) MENU[k].forEach(([n, d, l, p]) => ORDER_ITEMS.push({ id: oid(k, n), n, p: l, img: PH[p] || null, kg: k === 'kg', off: !!(OVR[oid(k, n)] || {}).off }));
+  if (OVR.tray) document.querySelectorAll('.tbig').forEach(t => { const b = t.querySelector('.bigprice b'), sm = t.querySelector('.bigprice [data-lbp]'), im = t.querySelector('.ph img');
+    if (b) b.textContent = usd(TRAY.p); if (sm) sm.dataset.lbp = TRAY.p; if (im && OVR.tray.img) im.src = TRAY.img; });
   function renderMenu(sfx) {
     for (const k in MENU) {
       const el = document.getElementById('l_' + k); if (!el) continue;

@@ -84,3 +84,5 @@ html[dir=rtl] .menu-page .pr{align-items:flex-start}
 @keyframes tohxW{from{transform:scale(2.4) rotate(-6deg);opacity:0}to{transform:none;opacity:1}}
 @keyframes tohxG{from{transform:translateY(100%) rotate(10deg)}to{transform:none}}
 @media (prefers-reduced-motion:reduce){.toh.on{animation:none;transform:none;opacity:1}}
+
+.menu-page .item:has(.o-step.sold),.tbig:has(.o-step.sold){opacity:.5}
