@@ -1,8 +1,7 @@
-:root{--o-bg:#0d0b0a;--o-card:#171412;--o-card2:#26211e;--o-ink:#f6ecd9;--o-mute:rgba(246,236,217,.6);--o-acc:#ff5a1f;--o-acc-ink:#140a05;--o-line:rgba(246,236,217,.12);--o-head:var(--display)}
-.o-hd h3,.o-done h4,.o-empty b{text-transform:uppercase;letter-spacing:-.02em}
+:root{--o-bg:#120f0d;--o-card:#1c1815;--o-card2:#2a241f;--o-ink:#f6ecd9;--o-mute:rgba(246,236,217,.6);--o-acc:#ff5a1f;--o-acc-ink:#140a05;--o-line:rgba(246,236,217,.12);--o-head:var(--display)}
 
-/* menu items: lift, glow when in the order */
-.menu-page .item{position:relative;border-radius:16px;padding:14px 12px;margin:0 -12px;border-bottom-color:transparent;transition:background .25s,transform .25s}
+/* ---------- menu rows ---------- */
+.menu-page .item{position:relative;border-radius:16px;padding:14px 12px;margin:0 -12px;border-bottom-color:transparent;transition:background .25s}
 .menu-page .item::after{content:"";position:absolute;left:12px;right:12px;bottom:0;height:1px;background:var(--line)}
 .menu-page .item:hover{background:rgba(255,90,31,.06)}
 .menu-page .item:has(.o-step.on){background:linear-gradient(90deg,rgba(255,90,31,.16),rgba(255,90,31,.03))}
@@ -10,6 +9,7 @@ html[dir=rtl] .menu-page .item:has(.o-step.on){background:linear-gradient(270deg
 .menu-page .item .th{transition:transform .4s cubic-bezier(.2,1.4,.4,1)}
 .menu-page .item:hover .th{transform:scale(1.08) rotate(-3deg)}
 .menu-page .item:has(.o-step.on) .th{box-shadow:0 0 0 2px var(--flame)}
+.th.logo{object-fit:contain;padding:10px;background:#1e1a17}
 .menu-page .pr{display:flex;flex-direction:column;align-items:flex-end;gap:6px}
 html[dir=rtl] .menu-page .pr{align-items:flex-start}
 .menu-page .pr .o-step{height:36px;margin-top:4px}
@@ -18,29 +18,69 @@ html[dir=rtl] .menu-page .pr{align-items:flex-start}
 .tbig .o-big{height:54px;margin-top:14px;width:max-content;align-self:flex-start}
 .tbig .o-big .o-add{padding:0 8px 0 22px;font-size:16px;font-family:var(--display);text-transform:uppercase}
 .tbig .o-big .o-add i{width:40px;height:40px;font-size:24px}
-.tbig .o-big .o-m,.tbig .o-big .o-p{width:52px;font-size:26px}.tbig .o-big .o-q{font-size:20px;min-width:30px}
+.tbig .o-big .o-m,.tbig .o-big .o-p{width:52px;font-size:26px}.tbig .o-big .o-q{font-size:20px!important;min-width:30px}
 .tbig:has(.o-step.on){box-shadow:0 0 0 2px var(--flame),0 30px 80px -20px rgba(255,90,31,.5)}
-body[data-page=menu] .o-fab{animation:none}
 .o-has body .dock{opacity:0;pointer-events:none}
 
-/* ---------- Tray of Happiness popup ---------- */
-.toh{position:fixed;z-index:190;bottom:0;inset-inline-start:8px;width:min(300px,62vw);pointer-events:none;transform:translateY(110%);opacity:0}
-.toh.on{animation:tohIn 3.2s cubic-bezier(.2,1.3,.4,1) both}
-@keyframes tohIn{0%{transform:translateY(110%) rotate(-8deg);opacity:1}14%{transform:translateY(0) rotate(4deg);opacity:1}20%{transform:translateY(0) rotate(-3deg)}26%{transform:translateY(0) rotate(2deg)}86%{transform:translateY(0) rotate(0);opacity:1}100%{transform:translateY(110%) rotate(6deg);opacity:1}}
-.toh-guy svg{display:block;width:100%;height:auto;filter:drop-shadow(0 20px 30px rgba(0,0,0,.5))}
-.toh.on .ib-mouth{transform-box:fill-box;transform-origin:50% 0;animation:tohYell .18s ease-in-out infinite alternate}
-@keyframes tohYell{to{transform:scaleY(1.35) scaleX(1.1)}}
-.toh.on .ib-hand{transform-box:fill-box;transform-origin:100% 100%;animation:tohHand .25s ease-in-out infinite alternate}
-.toh.on .ib-hand.r{transform-origin:0 100%;animation-delay:.12s}
-@keyframes tohHand{to{transform:rotate(-12deg) translateY(-3px)}}
-.toh.on .ib-eyes{transform-box:fill-box;transform-origin:50% 50%;animation:tohEyes .3s ease-in-out infinite alternate}
-@keyframes tohEyes{to{transform:scale(1.15)}}
-.toh-bub{position:absolute;bottom:88%;inset-inline-start:46%;width:max-content;background:#ffb000;color:#0d0b0a;font-family:var(--display);text-transform:uppercase;line-height:.9;padding:22px 26px 26px;text-align:center;clip-path:polygon(0% 20%,9% 15%,6% 0%,20% 10%,30% 0%,38% 12%,52% 2%,58% 14%,72% 3%,74% 17%,90% 8%,88% 24%,100% 26%,92% 40%,100% 54%,90% 62%,98% 80%,84% 80%,86% 98%,70% 86%,60% 100%,50% 86%,36% 98%,32% 84%,16% 94%,18% 78%,2% 80%,10% 62%,0% 52%,8% 38%);filter:drop-shadow(0 8px 0 #ff5a1f);transform:scale(0) rotate(-10deg)}
-.toh.on .toh-bub{animation:tohBub 3.2s cubic-bezier(.2,1.6,.4,1) both}
-@keyframes tohBub{0%,12%{transform:scale(0) rotate(-10deg)}22%{transform:scale(1.08) rotate(3deg)}30%{transform:scale(1) rotate(-2deg)}84%{transform:scale(1) rotate(-2deg)}92%,100%{transform:scale(0) rotate(8deg)}}
+/* ---------- checkout skin: "the tray" (centered, fiery, loud) ---------- */
+.o-skin-boo .o-fab{border-radius:16px;background:linear-gradient(135deg,#ff5a1f,#ff8a1f);font-family:var(--display);text-transform:uppercase}
+.o-skin-boo .o-fab i{border-radius:12px}
+.o-skin-boo .o-sheet{background:#120f0d;overflow:hidden;box-shadow:0 0 0 2px #2a241f,0 40px 120px rgba(0,0,0,.7),0 0 120px -30px rgba(255,90,31,.5)}
+.o-skin-boo .o-hd{position:relative;background:linear-gradient(120deg,#ff5a1f,#ffb000);color:#140a05;border:0;padding:22px 22px 26px;clip-path:polygon(0 0,100% 0,100% 82%,0 100%)}
+.o-skin-boo .o-hd h3{font-size:clamp(30px,6vw,40px);letter-spacing:-.03em;text-transform:uppercase}
+.o-skin-boo .o-demo{border-color:#140a05;color:#140a05}
+.o-skin-boo .o-x{background:#140a05;color:#ffb000;border:0}
+.o-skin-boo .o-rows{position:relative;background:radial-gradient(120% 100% at 50% 0%,#2b2622,#1a1613);border:3px solid #3a332e;border-radius:28px;padding:14px;gap:0;box-shadow:inset 0 2px 0 rgba(255,255,255,.06),inset 0 -10px 30px rgba(0,0,0,.5),0 16px 30px -12px rgba(0,0,0,.7);margin:6px 18px 0}
+.o-skin-boo .o-rows::before,.o-skin-boo .o-rows::after{content:"";position:absolute;top:50%;width:16px;height:44px;margin-top:-22px;border:3px solid #3a332e;background:#1a1613}
+.o-skin-boo .o-rows::before{left:-19px;border-radius:12px 0 0 12px;border-right:0}
+.o-skin-boo .o-rows::after{right:-19px;border-radius:0 12px 12px 0;border-left:0}
+.o-skin-boo .o-row{background:none;border:0;border-bottom:1px dashed rgba(246,236,217,.14);border-radius:0;padding:12px 4px}
+.o-skin-boo .o-row:last-child{border-bottom:0}
+.o-skin-boo .o-th{border-radius:50%;width:58px;height:58px;box-shadow:0 0 0 2px #ff5a1f}
+.o-skin-boo .o-ri b{font-family:var(--display);text-transform:uppercase;letter-spacing:-.02em;font-size:16px}
+.o-skin-boo .o-sub{color:#ffb000}
+.o-skin-boo .o-mode{background:none;border:0;padding:0;gap:8px}
+.o-skin-boo .o-mode button{background:#1c1815;border:2px solid #2a241f;border-radius:14px;font-family:var(--display);text-transform:uppercase;letter-spacing:-.01em}
+.o-skin-boo .o-mode button.on{background:#ffb000;border-color:#ffb000;color:#140a05;transform:rotate(-1.5deg)}
+.o-skin-boo .o-tot{background:none;border:0;padding:0}
+.o-skin-boo .o-grand{margin:8px -20px 0;padding:18px 20px 22px;background:linear-gradient(120deg,#ff5a1f,#d93a0b);color:#140a05;border:0;clip-path:polygon(0 14%,100% 0,100% 100%,0 100%)}
+.o-skin-boo .o-grand b{color:#fff;font-family:var(--display);font-size:30px}.o-skin-boo .o-grand small{color:rgba(20,10,5,.75)}
+.o-skin-boo .o-ft{border:0;background:#0d0b0a}
+.o-skin-boo .o-cta{background:#ffb000;color:#140a05;font-family:var(--display);text-transform:uppercase;font-size:19px;border-radius:14px;box-shadow:0 6px 0 #b37b00}
+.o-skin-boo .o-cta:active{transform:translateY(4px);box-shadow:0 2px 0 #b37b00}
+.o-skin-boo .o-in{border-radius:12px;background:#1c1815;border:2px solid #2a241f}
+.o-skin-boo .o-in:focus{border-color:#ffb000}
+.o-skin-boo .o-done h4{font-size:44px;color:#ffb000}
+.boo-done{width:180px;margin:-6px auto 0;transform:rotate(-4deg);animation:oPop .6s cubic-bezier(.3,1.6,.5,1);filter:drop-shadow(0 18px 24px rgba(0,0,0,.6))}
+
+/* ---------- kilo popup: Ibrahim screaming in the corner ---------- */
+.toh{position:fixed;z-index:190;bottom:0;inset-inline-start:6px;width:min(280px,58vw);pointer-events:none;transform:translateY(115%);opacity:0}
+.toh.on{animation:tohIn 3.4s cubic-bezier(.2,1.3,.4,1) both}
+@keyframes tohIn{0%{transform:translateY(115%) rotate(-10deg);opacity:1}12%{transform:translateY(8%) rotate(4deg);opacity:1}18%{transform:translateY(8%) rotate(-3deg)}24%{transform:translateY(8%) rotate(2deg)}30%,86%{transform:translateY(8%) rotate(0);opacity:1}100%{transform:translateY(115%) rotate(8deg);opacity:1}}
+.toh-guy{display:block;width:100%;height:auto;filter:drop-shadow(0 20px 30px rgba(0,0,0,.6))}
+.toh.on .toh-guy{animation:tohShakeG .12s linear .45s 14}
+@keyframes tohShakeG{0%{transform:translate(0,0)}25%{transform:translate(2px,-2px)}50%{transform:translate(-2px,1px)}75%{transform:translate(1px,2px)}}
+.toh-bub{position:absolute;bottom:82%;inset-inline-start:44%;width:max-content;background:#ffb000;color:#0d0b0a;font-family:var(--display);text-transform:uppercase;line-height:.9;padding:22px 26px 26px;text-align:center;clip-path:polygon(0% 20%,9% 15%,6% 0%,20% 10%,30% 0%,38% 12%,52% 2%,58% 14%,72% 3%,74% 17%,90% 8%,88% 24%,100% 26%,92% 40%,100% 54%,90% 62%,98% 80%,84% 80%,86% 98%,70% 86%,60% 100%,50% 86%,36% 98%,32% 84%,16% 94%,18% 78%,2% 80%,10% 62%,0% 52%,8% 38%);filter:drop-shadow(0 8px 0 #ff5a1f);transform:scale(0) rotate(-10deg)}
+.toh.on .toh-bub{animation:tohBub 3.4s cubic-bezier(.2,1.6,.4,1) both}
+@keyframes tohBub{0%,10%{transform:scale(0) rotate(-10deg)}20%{transform:scale(1.08) rotate(3deg)}28%{transform:scale(1) rotate(-2deg)}84%{transform:scale(1) rotate(-2deg)}92%,100%{transform:scale(0) rotate(8deg)}}
 .toh-bub b{display:block;font-size:clamp(20px,5.4vw,30px);letter-spacing:-.02em}
 .toh-bub b:last-child{font-size:clamp(26px,7vw,40px);color:#d6260b}
 .toh.on .toh-bub b{animation:tohShake .09s linear infinite}
 @keyframes tohShake{0%{transform:translate(0,0)}25%{transform:translate(1px,-1px)}50%{transform:translate(-1px,1px)}75%{transform:translate(1px,1px)}}
-.toh-c{position:fixed;z-index:189;font-size:34px;pointer-events:none;line-height:1}
+.toh-c{position:fixed;z-index:189;width:46px;height:46px;border-radius:50%;object-fit:cover;pointer-events:none;box-shadow:0 0 0 3px #ffb000,0 8px 18px rgba(0,0,0,.5)}
+
+/* ---------- checkout flash: full screen ---------- */
+.tohx{position:fixed;inset:0;z-index:220;pointer-events:none;display:grid;place-items:center;opacity:0;overflow:hidden}
+.tohx-bg{position:absolute;inset:-5%;background:url(img/tray.jpg) center/cover;filter:blur(6px) saturate(1.3) brightness(.55)}
+.tohx::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,rgba(255,90,31,.35),rgba(13,11,10,.85) 70%)}
+.tohx-t{position:relative;z-index:2;text-align:center;font-family:var(--display);text-transform:uppercase;line-height:.85;color:#ffb000;letter-spacing:-.04em;text-shadow:0 8px 0 #d6260b,0 20px 60px rgba(0,0,0,.6)}
+.tohx-t b{display:block;font-size:clamp(56px,13vw,170px)}
+.tohx-t b:last-child{color:#fff}
+.tohx img{position:absolute;z-index:3;bottom:-4%;inset-inline-end:2%;width:min(300px,52vw);filter:drop-shadow(0 20px 30px rgba(0,0,0,.6))}
+.tohx.on{animation:tohxF 2.7s ease both}
+.tohx.on .tohx-t b{animation:tohxW .6s cubic-bezier(.2,1.6,.4,1) both}.tohx.on .tohx-t b:last-child{animation-delay:.35s}
+.tohx.on img{animation:tohxG .7s cubic-bezier(.2,1.4,.4,1) .2s both}
+@keyframes tohxF{0%{opacity:0}12%,80%{opacity:1}100%{opacity:0}}
+@keyframes tohxW{from{transform:scale(2.4) rotate(-6deg);opacity:0}to{transform:none;opacity:1}}
+@keyframes tohxG{from{transform:translateY(100%) rotate(10deg)}to{transform:none}}
 @media (prefers-reduced-motion:reduce){.toh.on{animation:none;transform:none;opacity:1}}
