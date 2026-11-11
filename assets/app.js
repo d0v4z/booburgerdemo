@@ -100,11 +100,14 @@
   };
   const usd = l => { const v = l / RATE; return '$' + (Number.isInteger(v) ? v : (Math.round(v * 10) / 10)); };
   const lbpFmt = (l, sfx) => l.toLocaleString('en-US') + ' ' + sfx;
+  const oid = (k, n) => k + '-' + n.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+  const ORDER_ITEMS = [{ id: 'tray', n: 'Tray of Happiness', p: 2970000, img: 'assets/img/tray.jpg', kg: true }];
+  for (const k in MENU) MENU[k].forEach(([n, d, l, p]) => ORDER_ITEMS.push({ id: oid(k, n), n, p: l, img: PH[p] || null, emo: PH[p] ? null : p, kg: k === 'kg' }));
   function renderMenu(sfx) {
     for (const k in MENU) {
       const el = document.getElementById('l_' + k); if (!el) continue;
       el.innerHTML = MENU[k].map(([n, d, l, p]) =>
-        `<div class="item">${PH[p] ? `<img class="th" src="${PH[p]}" alt="${n}" loading="lazy">` : `<span class="th emo">${p || '🍔'}</span>`}<div class="it"><h4>${n}</h4>${d ? `<p>${d}</p>` : ''}</div><div class="pr"><b>${usd(l)}</b><small>${lbpFmt(l, sfx)}</small></div></div>`).join('');
+        `<div class="item" data-oimg>${PH[p] ? `<img class="th" src="${PH[p]}" alt="${n}" loading="lazy">` : `<span class="th emo">${p || '🍔'}</span>`}<div class="it"><h4>${n}</h4>${d ? `<p>${d}</p>` : ''}</div><div class="pr"><b>${usd(l)}</b><small>${lbpFmt(l, sfx)}</small><div class="o-step" data-oid="${oid(k, n)}"></div></div></div>`).join('');
     }
     document.querySelectorAll('[data-lbp]').forEach(e => e.textContent = lbpFmt(+e.dataset.lbp, sfx));
   }
@@ -202,7 +205,7 @@
     document.documentElement.lang = l; document.documentElement.dir = l === 'ar' ? 'rtl' : 'ltr';
     document.querySelectorAll('[data-k]').forEach(el => { const k = el.dataset.k; if (d[k] != null) el.innerHTML = d[k]; });
     document.getElementById('lang').textContent = d.langBtn;
-    renderMenu(d.lbp);
+    renderMenu(d.lbp); if (window.Order && Order.relabel) Order.relabel();
     document.querySelectorAll('[data-wa]').forEach(a => a.href = 'https://wa.me/' + a.dataset.wa + '?text=' + encodeURIComponent(d.waMsg));
     document.querySelector('#open > span:last-child').textContent = openState ? d.openNow : d.closedNow;
     setChip(); fit();
@@ -335,4 +338,59 @@
   addEventListener('resize', showcase);
   addEventListener('hashchange', () => route());
   route();
+
+  /* ---------- ORDERING (demo) + Tray of Happiness ---------- */
+  const goMenu = () => { if (page !== 'menu') { try { history.pushState({}, '', new URL('menu/', ROOT)); route(); } catch (_) { location.href = new URL('menu/', ROOT); } } };
+  document.querySelectorAll('a[href*="fmcshops"]').forEach(a => { a.setAttribute('href', 'menu/'); a.setAttribute('data-nav', ''); a.removeAttribute('target'); });
+  let audio;
+  function bell() {
+    try {
+      audio = audio || new (window.AudioContext || window.webkitAudioContext)(); const t = audio.currentTime;
+      [1318, 1975, 2637].forEach((f, i) => { const o = audio.createOscillator(), g = audio.createGain(); o.type = 'sine'; o.frequency.value = f;
+        g.gain.setValueAtTime(0.0001, t + i * .09); g.gain.exponentialRampToValueAtTime(.18 / (i + 1), t + i * .09 + .01); g.gain.exponentialRampToValueAtTime(.0001, t + i * .09 + 1.2);
+        o.connect(g).connect(audio.destination); o.start(t + i * .09); o.stop(t + i * .09 + 1.3); });
+    } catch (e) {}
+  }
+  const IBRAHIM = `<svg viewBox="0 0 220 240" aria-hidden="true">
+    <ellipse cx="110" cy="232" rx="70" ry="8" fill="rgba(0,0,0,.35)"/>
+    <path d="M40 240c4-46 30-66 70-66s66 20 70 66z" fill="#111"/><path d="M92 176l18 26 18-26" fill="#ff5a1f"/>
+    <text x="110" y="226" text-anchor="middle" font-family="Arial Black,sans-serif" font-weight="900" font-size="20" fill="#ffb000">BOO</text>
+    <circle cx="110" cy="112" r="62" fill="#e8b48a"/>
+    <path d="M52 118c2 44 26 70 58 70s56-26 58-70c-8 10-16 14-24 14 0 0-6-6-34-6s-34 6-34 6c-8 0-16-4-24-14z" fill="#2a1a12"/>
+    <ellipse class="ib-mouth" cx="110" cy="146" rx="20" ry="22" fill="#5a0f0a"/><ellipse cx="110" cy="158" rx="12" ry="7" fill="#e0525a"/>
+    <path d="M92 132c6-4 30-4 36 0" stroke="#2a1a12" stroke-width="6" stroke-linecap="round" fill="none"/>
+    <g class="ib-eyes"><ellipse cx="86" cy="100" rx="11" ry="13" fill="#fff"/><ellipse cx="134" cy="100" rx="11" ry="13" fill="#fff"/><circle cx="88" cy="102" r="6" fill="#111"/><circle cx="132" cy="102" r="6" fill="#111"/></g>
+    <path d="M72 82l26 8M148 82l-26 8" stroke="#2a1a12" stroke-width="7" stroke-linecap="round"/>
+    <path d="M46 92c0-44 28-64 64-64s64 20 64 64c-20-8-42-12-64-12s-44 4-64 12z" fill="#111"/>
+    <path d="M168 86c18 2 30 8 34 16-16 2-30 0-40-6z" fill="#111"/>
+    <text x="110" y="66" text-anchor="middle" font-family="Arial Black,sans-serif" font-weight="900" font-size="18" fill="#ff5a1f">BOO</text>
+    <g class="ib-hand"><path d="M40 150c-14-10-16-30-2-34 10-3 18 8 22 20" fill="#e8b48a" stroke="#c98d63" stroke-width="2"/></g>
+    <g class="ib-hand r"><path d="M180 150c14-10 16-30 2-34-10-3-18 8-22 20" fill="#e8b48a" stroke="#c98d63" stroke-width="2"/></g>
+  </svg>`;
+  const pop = document.createElement('div'); pop.className = 'toh'; pop.setAttribute('aria-live', 'polite');
+  pop.innerHTML = `<div class="toh-bub"><b>TRAY OF</b><b>HAPPINESS!!!</b></div><div class="toh-guy">${IBRAHIM}</div>`;
+  document.body.appendChild(pop);
+  let tohT;
+  function trayOfHappiness() {
+    clearTimeout(tohT); pop.classList.remove('on'); void pop.offsetWidth; pop.classList.add('on'); bell();
+    const em = ['🍗', '🦐', '🍟', '🔥', '🎉'];
+    for (let i = 0; i < 26; i++) {
+      const c = document.createElement('span'); c.className = 'toh-c'; c.textContent = em[i % em.length];
+      const x = (Math.random() - .5) * innerWidth * .9, y = -(200 + Math.random() * innerHeight * .6), r = (Math.random() - .5) * 720;
+      c.style.left = (innerWidth / 2) + 'px'; c.style.top = (innerHeight - 40) + 'px'; document.body.appendChild(c);
+      c.animate([{ transform: 'translate(-50%,0) scale(.4)', opacity: 1 }, { transform: `translate(calc(-50% + ${x}px),${y}px) rotate(${r}deg) scale(1.1)`, opacity: 1, offset: .55 },
+        { transform: `translate(calc(-50% + ${x * 1.1}px),${y + 260}px) rotate(${r * 1.4}deg) scale(1)`, opacity: 0 }], { duration: 1500 + Math.random() * 600, easing: 'cubic-bezier(.2,.7,.4,1)' }).onfinish = () => c.remove();
+    }
+    tohT = setTimeout(() => pop.classList.remove('on'), 3200);
+  }
+  Order.init({
+    key: 'boo-cart', base: 'lbp', rate: RATE, delivery: 180000,
+    branches: ['Monot', 'Batroun', 'Saida'],
+    lang: () => lang,
+    onAdd: it => { if (it && it.kg) trayOfHappiness(); },
+    onBrowse: goMenu,
+    t: { en: { add: 'Add', placed: 'Order in!', thanks: 'Sahtein', s2: 'On the grill 🔥', deliveryNote: 'Delivery 3a kel Lebnen.' },
+         ar: { placed: 'وصل طلبك!', thanks: 'صحتين', s2: 'عالنار 🔥' } }
+  });
+  Order.register(ORDER_ITEMS);
 })();
