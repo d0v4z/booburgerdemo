@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Boo Burger | Menu</title>
+<link rel="icon" href="../assets/img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{overflow-x:hidden}
+img{display:block;max-width:100%}
+@font-face{font-family:"BooDisplay";src:url(../assets/fonts/display.woff) format("woff");font-weight:900}
+body{background:#0d0b0a;color:#f6ecd9;font-family:"Cairo",system-ui,sans-serif}
+.half{padding:28px 18px 50px;max-width:760px;margin:0 auto}
+.en{border-top:2px dashed rgba(246,236,217,.18);margin-top:20px;padding-top:40px}
+.top{display:flex;align-items:center;gap:14px}
+.top img{width:64px;height:64px;border-radius:50%;box-shadow:0 0 0 3px #ff5a1f}
+.top h1{font-family:"BooDisplay","Cairo",sans-serif;font-weight:900;font-size:34px;line-height:1;text-transform:uppercase;letter-spacing:-.03em}
+.top h1 small{display:block;font-family:"Cairo",sans-serif;font-size:14px;font-weight:700;color:#ff5a1f;letter-spacing:.1em;margin-top:4px}
+.hint{margin:16px 0 0;font-size:13px;color:rgba(246,236,217,.55)}
+.cat{margin:34px 0 12px;font-family:"BooDisplay","Cairo",sans-serif;font-weight:900;font-size:30px;text-transform:uppercase;letter-spacing:-.02em;display:flex;align-items:center;gap:12px}
+.cat::after{content:"";flex:1;height:3px;background:linear-gradient(90deg,#ff5a1f,transparent)}
+[dir=rtl] .cat::after{background:linear-gradient(270deg,#ff5a1f,transparent)}
+[dir=rtl] .cat{font-family:"Cairo",sans-serif;letter-spacing:0}
+.list{display:grid;gap:10px}
+.it{display:flex;align-items:center;gap:14px;background:#171412;border:1px solid rgba(246,236,217,.1);border-radius:18px;padding:10px}
+.it img{width:84px;height:84px;border-radius:14px;object-fit:cover;flex:none}
+.it.noimg{padding:14px 16px}
+.it .tx{flex:1;min-width:0}
+.it h3{font-size:18px;font-weight:900;line-height:1.25}
+.en .it h3{font-family:"BooDisplay","Cairo",sans-serif;text-transform:uppercase;letter-spacing:-.02em}
+.it p{font-size:13.5px;color:rgba(246,236,217,.62);line-height:1.45;margin-top:3px}
+.pr{text-align:end;flex:none;direction:ltr}
+[dir=rtl] .pr{text-align:left}
+.pr b{display:block;font-family:"BooDisplay","Cairo",sans-serif;font-size:22px;color:#ffb000;line-height:1.1}
+.pr small{font-size:12px;color:rgba(246,236,217,.55);white-space:nowrap}
+.it.big{flex-direction:column;align-items:stretch;padding:0;overflow:hidden;border-color:#ff5a1f}
+.it.big img{width:100%;height:200px;border-radius:0}
+.it.big .tx,.it.big .pr{padding:0 16px}.it.big .pr{padding-bottom:16px;text-align:start}
+.it.big h3{font-size:26px}
+.foot{margin-top:30px;text-align:center;font-size:12px;color:rgba(246,236,217,.4)}
+</style>
+</head>
+<body>
+<section class="half" lang="ar" dir="rtl">
+<header class="top"><img src="../assets/img/logo.png" alt=""><h1>Boo Burger<small>المنيو</small></h1></header>
+<p class="hint">المنيو بالإنكليزي تحت ↓ · English menu below</p>
+<h2 class="cat"><span>بالكيلو</span></h2><div class="list">
+<article class="it big"><img src="../assets/img/tray.jpg" alt="" loading="lazy">
+<div class="tx"><h3>صينية السعادة</h3><p>كيلو جوانح + كيلو قريدس، بطاطا ومشروب</p></div><div class="pr"><b>$33</b><small>2,970,000 ل.ل</small></div></article>
+<article class="it"><img src="../assets/img/menu/wings.jpg" alt="" loading="lazy">
+<div class="tx"><h3>جوانح كيلو</h3><p>صوص سرّي، ثوم، باربكيو، بطاطا ومشروب</p></div><div class="pr"><b>$14</b><small>1,260,000 ل.ل</small></div></article>
+<article class="it"><img src="../assets/img/menu/wings.jpg" alt="" loading="lazy">
+<div class="tx"><h3>جوانح كيلو ونص</h3><p>بطاطا، ثوم، صوص باربكيو ومشروب</p></div><div class="pr"><b>$20.9</b><small>1,880,000 ل.ل</small></div></article>
+<article class="it"><img src="../assets/img/menu/wings.jpg" alt="" loading="lazy">
+<div class="tx"><h3>جوانح حرّة كيلو</h3></div><div class="pr"><b>$14</b><small>1,260,000 ل.ل</small></div></article>
+<article class="it"><img src="../assets/img/menu/bbqwings.jpg" alt="" loading="lazy">
+<div class="tx"><h3>جوانح باربكيو كيلو</h3></div><div class="pr"><b>$14</b><small>1,260,000 ل.ل</small></div></article>
+<article class="it noimg">
+<div class="tx"><h3>جوانح بافلو كيلو</h3></div><div class="pr"><b>$14</b><small>1,260,000 ل.ل</small></div></article>
+<article class="it"><img src="../assets/img/menu/shrimp.jpg" alt="" loading="lazy">
+<div class="tx"><h3>قريدس نص كيلو</h3><p>صوص كوكتيل ومشروب</p></div><div class="pr"><b>$12</b><small>1,080,000 ل.ل</small></div></article>
+<article class="it"><img src="../assets/img/menu/shrimp.jpg" alt="" loading="lazy">
+<div class="tx"><h3>قريدس كيلو</h3><p>بطاطا، صوص كوكتيل ومشروب</p></div><div class="pr"><b>$24</b><small>2,160,000 ل.ل</small></div></article>
+<article class="it noimg">
+<div class="tx"><h3>قريدس حرّ كيلو</h3></div><div class="pr"><b>$24</b><small>2,160,000 ل.ل</small></div></article>
+<article class="it noimg">
+<div class="tx"><h3>مقانق نص كيلو</h3><p>خس آيسبرغ وصوص مايونيز</p></div><div class="pr"><b>$17</b><small>1,530,000 ل.ل</small></div></article>
+<article class="it"><img src="../assets/img/menu/riyash.jpg" alt="" loading="lazy">
+<div class="tx"><h3>ريش</h3></div><div class="pr"><b>$30</b><small>2,700,000 ل.ل</small></div></article>
+<article class="it noimg">
+<div class="tx"><h3>سي فود</h3></div><div class="pr"><b>$30</b><small>2,700,000 ل.ل</small></div></article>
+</div>
+<h2 class="cat"><span>برغر</span></h2><div class="list">
+<article class="it"><img src="../assets/img/menu/swiss.jpg" alt="" loading="lazy">
+<div class="tx"><h3>سويس مشروم</h3><p>مايونيز، فطر، بصل، موزاريلا، لحمة</p></div><div class="pr"><b>$9</b><small>810,000 ل.ل</small></div></article>
+<article class="it"><img src="../assets/img/menu/lebanese.jpg" alt="" loading="lazy">
+<div class="tx"><h3>لبناني</h3><p>كولسلو، بطاطا، كاتشب، لحمة</p></div><div class="pr"><b>$6.5</b><small>585,000 ل.ل</small></div></article>
+<article class="it"><img src="../assets/img/menu/cheese.jpg" alt="" loading="lazy">
+<div class="tx"><h3>تشيز</h3></div><div class="pr"><b>$7.5</b><small>675,000 ل.ل</small></div></article>
+<article class="it"><img src="../assets/img/menu/bbq.jpg" alt="" loading="lazy">
+<div class="tx"><h3>باربكيو</h3><p>مايونيز، خس، بندورة، باربكيو، موزاريلا، لحمة</p></div><div class="pr"><b>$7.5</b><small>675,000 ل.ل</small></div></article>
+<article class="it"><img src="../assets/img/menu/american.jpg" alt="" loading="lazy">
+<div class="tx"><h3>أميركان</h3><p>مايونيز، خس، بندورة، شيدر، بصل، لحمة</p></div><div class="pr"><b>$7.5</b><small>675,000 ل.ل</small></div></article>
+<article class="it"><img src="../assets/img/menu/grilled.jpg" alt="" loading="lazy">
+<div class="tx"><h3>دجاج مشوي</h3><p>مايونيز، خس، كوكتيل، دجاج مشوي</p></div><div class="pr"><b>$7</b><small>630,000 ل.ل</small></div></article>
+<article class="it"><img src="../assets/img/menu/chpatty.jpg" alt="" loading="lazy">
+<div class="tx"><h3>تشيكن باتي</h3><p>مايونيز، خس، كوكتيل، دجاج</p></div><div class="pr"><b>$8.5</b><small>765,000 ل.ل</small></div></article>
+<article class="it"><img src="../assets/img/menu/spicy.jpg" alt="" loading="lazy">
+<div class="tx"><h3>سبايسي</h3></div><div class="pr"><b>$8</b><small>720,000 ل.ل</small></div></article>
+<article class="it"><img src="../assets/img/menu/juice.jpg" alt="" loading="lazy">
+<div class="tx"><h3>جوسي</h3><p>مايونيز، خس، بندورة، كوكتيل، باربكيو، موزاريلا، هالابينو، لحمة</p></div><div class="pr"><b>$8</b><small>720,000 ل.ل</small></div></article>
+<article class="it"><img src="../assets/img/menu/messy.jpg" alt="" loading="lazy">
+<div class="tx"><h3>ميسي</h3><p>مايونيز، خس، كوكتيل، شيدر، بصل مكرمل، لحمة</p></div><div class="pr"><b>$8</b><small>720,000 ل.ل</small></div></article>
+<article class="it"><img src="../assets/img/menu/nashville.jpg" alt="" loading="lazy">
+<div class="tx"><h3>ناشفيل هوت تشيكن</h3></div><div class="pr"><b>$10</b><small>900,000 ل.ل</small></div></article>
+</div>
+<h2 class="cat"><span>مقبّلات</span></h2><div class="list">
+<article class="it"><img src="../assets/img/menu/fries.jpg" alt="" loading="lazy">
+<div class="tx"><h3>علبة بطاطا</h3></div><div class="pr"><b>$3</b><small>270,000 ل.ل</small></div></article>
+<article class="it"><img src="../assets/img/menu/platter.jpg" alt="" loading="lazy">
+<div class="tx"><h3>بطاطا كيرلي</h3></div><div class="pr"><b>$5</b><small>450,000 ل.ل</small></div></article>
+<article class="it noimg">
+<div class="tx"><h3>ودجز</h3></div><div class="pr"><b>$5</b><small>450,000 ل.ل</small></div></article>
+<article class="it"><img src="../assets/img/menu/platter.jpg" alt="" loading="lazy">
+<div class="tx"><h3>حلقات بصل</h3></div><div class="pr"><b>$5</b><small>450,000 ل.ل</small></div></article>
+<article class="it"><img src="../assets/img/menu/platter.jpg" alt="" loading="lazy">
+<div class="tx"><h3>أصابع موزاريلا</h3></div><div class="pr"><b>$6</b><small>540,000 ل.ل</small></div></article>
+<article class="it"><img src="../assets/img/menu/platter.jpg" alt="" loading="lazy">
+<div class="tx"><h3>كرات شيدر</h3></div><div class="pr"><b>$6</b><small>540,000 ل.ل</small></div></article>
+<article class="it noimg">
+<div class="tx"><h3>ميني بطاطا</h3></div><div class="pr"><b>$6</b><small>540,000 ل.ل</small></div></article>
+<article class="it noimg">
+<div class="tx"><h3>بطاطا حرّة</h3></div><div class="pr"><b>$6</b><small>540,000 ل.ل</small></div></article>
+<article class="it"><img src="../assets/img/menu/platter.jpg" alt="" loading="lazy">
+<div class="tx"><h3>تشكيلة مقبّلات</h3></div><div class="pr"><b>$12</b><small>1,080,000 ل.ل</small></div></article>
+<article class="it noimg">
+<div class="tx"><h3>سلطة روكا</h3></div><div class="pr"><b>$6</b><small>540,000 ل.ل</small></div></article>
+<article class="it noimg">
+<div class="tx"><h3>سلطة عربية</h3></div><div class="pr"><b>$5</b><small>450,000 ل.ل</small></div></article>
+<article class="it noimg">
+<div class="tx"><h3>تبولة</h3></div><div class="pr"><b>$6</b><small>540,000 ل.ل</small></div></article>
+<article class="it noimg">
+<div class="tx"><h3>فتوش</h3></div><div class="pr"><b>$6</b><small>540,000 ل.ل</small></div></article>
+</div>
+<h2 class="cat"><span>مشروبات وأرغيلة</span></h2><div class="list">
+<article class="it noimg">
+<div class="tx"><h3>مشروب غازي</h3></div><div class="pr"><b>$1.5</b><small>135,000 ل.ل</small></div></article>
+<article class="it noimg">
+<div class="tx"><h3>مي</h3></div><div class="pr"><b>$1</b><small>90,000 ل.ل</small></div></article>
+<article class="it noimg">
+<div class="tx"><h3>مي فوّارة</h3></div><div class="pr"><b>$2</b><small>180,000 ل.ل</small></div></article>
+<article class="it noimg">
+<div class="tx"><h3>آيس تي</h3></div><div class="pr"><b>$2</b><small>180,000 ل.ل</small></div></article>
+<article class="it noimg">
+<div class="tx"><h3>آيس كوفي</h3></div><div class="pr"><b>$2</b><small>180,000 ل.ل</small></div></article>
+<article class="it noimg">
+<div class="tx"><h3>أرغيلة</h3></div><div class="pr"><b>$12</b><small>1,080,000 ل.ل</small></div></article>
+</div><p class="foot">الأسعار بالدولار ومعها بالليرة اللبنانية.</p>
+</section>
+<section class="half en" lang="en" dir="ltr" id="english">
+<header class="top"><img src="../assets/img/logo.png" alt=""><h1>Boo Burger<small>MENU</small></h1></header>
+<h2 class="cat"><span>By the Kilo</span></h2><div class="list">
+<article class="it big"><img src="../assets/img/tray.jpg" alt="" loading="lazy">
+<div class="tx"><h3>Tray of Happiness</h3><p>1KG wings + 1KG shrimps, fries &amp; soft drink</p></div><div class="pr"><b>$33</b><small>2,970,000 LBP</small></div></article>
+<article class="it"><img src="../assets/img/menu/wings.jpg" alt="" loading="lazy">
+<div class="tx"><h3>Wings 1kg</h3><p>Secret sauce, garlic, BBQ, fries &amp; soft drink</p></div><div class="pr"><b>$14</b><small>1,260,000 LBP</small></div></article>
+<article class="it"><img src="../assets/img/menu/wings.jpg" alt="" loading="lazy">
+<div class="tx"><h3>Wings 1.5kg</h3><p>Fries, garlic, BBQ sauce &amp; soft drink</p></div><div class="pr"><b>$20.9</b><small>1,880,000 LBP</small></div></article>
+<article class="it"><img src="../assets/img/menu/wings.jpg" alt="" loading="lazy">
+<div class="tx"><h3>Spicy Wings 1kg</h3></div><div class="pr"><b>$14</b><small>1,260,000 LBP</small></div></article>
+<article class="it"><img src="../assets/img/menu/bbqwings.jpg" alt="" loading="lazy">
+<div class="tx"><h3>BBQ Wings 1kg</h3></div><div class="pr"><b>$14</b><small>1,260,000 LBP</small></div></article>
+<article class="it noimg">
+<div class="tx"><h3>Buffalo Wings 1kg</h3></div><div class="pr"><b>$14</b><small>1,260,000 LBP</small></div></article>
+<article class="it"><img src="../assets/img/menu/shrimp.jpg" alt="" loading="lazy">
+<div class="tx"><h3>Shrimp ½kg</h3><p>Cocktail sauce &amp; soft drink</p></div><div class="pr"><b>$12</b><small>1,080,000 LBP</small></div></article>
+<article class="it"><img src="../assets/img/menu/shrimp.jpg" alt="" loading="lazy">
+<div class="tx"><h3>Shrimp 1kg</h3><p>Fries, cocktail sauce &amp; soft drink</p></div><div class="pr"><b>$24</b><small>2,160,000 LBP</small></div></article>
+<article class="it noimg">
+<div class="tx"><h3>Spicy Shrimp 1kg</h3></div><div class="pr"><b>$24</b><small>2,160,000 LBP</small></div></article>
+<article class="it noimg">
+<div class="tx"><h3>Makanek ½kg</h3><p>Iceberg &amp; mayo sauce</p></div><div class="pr"><b>$17</b><small>1,530,000 LBP</small></div></article>
+<article class="it"><img src="../assets/img/menu/riyash.jpg" alt="" loading="lazy">
+<div class="tx"><h3>Riyash</h3></div><div class="pr"><b>$30</b><small>2,700,000 LBP</small></div></article>
+<article class="it noimg">
+<div class="tx"><h3>Seafood</h3></div><div class="pr"><b>$30</b><small>2,700,000 LBP</small></div></article>
+</div>
+<h2 class="cat"><span>Burgers</span></h2><div class="list">
+<article class="it"><img src="../assets/img/menu/swiss.jpg" alt="" loading="lazy">
+<div class="tx"><h3>Swiss Mushroom</h3><p>Mayo, mushroom, onion, mozzarella, beef</p></div><div class="pr"><b>$9</b><small>810,000 LBP</small></div></article>
+<article class="it"><img src="../assets/img/menu/lebanese.jpg" alt="" loading="lazy">
+<div class="tx"><h3>Lebanese</h3><p>Coleslaw, fries, ketchup, beef</p></div><div class="pr"><b>$6.5</b><small>585,000 LBP</small></div></article>
+<article class="it"><img src="../assets/img/menu/cheese.jpg" alt="" loading="lazy">
+<div class="tx"><h3>Cheese</h3></div><div class="pr"><b>$7.5</b><small>675,000 LBP</small></div></article>
+<article class="it"><img src="../assets/img/menu/bbq.jpg" alt="" loading="lazy">
+<div class="tx"><h3>BBQ</h3><p>Mayo, lettuce, tomato, BBQ, mozzarella, beef</p></div><div class="pr"><b>$7.5</b><small>675,000 LBP</small></div></article>
+<article class="it"><img src="../assets/img/menu/american.jpg" alt="" loading="lazy">
+<div class="tx"><h3>American</h3><p>Mayo, lettuce, tomato, cheddar slice, onion, beef</p></div><div class="pr"><b>$7.5</b><small>675,000 LBP</small></div></article>
+<article class="it"><img src="../assets/img/menu/grilled.jpg" alt="" loading="lazy">
+<div class="tx"><h3>Grilled Chicken</h3><p>Mayo, lettuce, cocktail, grilled chicken</p></div><div class="pr"><b>$7</b><small>630,000 LBP</small></div></article>
+<article class="it"><img src="../assets/img/menu/chpatty.jpg" alt="" loading="lazy">
+<div class="tx"><h3>Chicken Patty</h3><p>Mayo, lettuce, cocktail, chicken patty</p></div><div class="pr"><b>$8.5</b><small>765,000 LBP</small></div></article>
+<article class="it"><img src="../assets/img/menu/spicy.jpg" alt="" loading="lazy">
+<div class="tx"><h3>Spicy</h3></div><div class="pr"><b>$8</b><small>720,000 LBP</small></div></article>
+<article class="it"><img src="../assets/img/menu/juice.jpg" alt="" loading="lazy">
+<div class="tx"><h3>Juice</h3><p>Mayo, lettuce, tomato, cocktail, BBQ, mozzarella, jalapeño, beef</p></div><div class="pr"><b>$8</b><small>720,000 LBP</small></div></article>
+<article class="it"><img src="../assets/img/menu/messy.jpg" alt="" loading="lazy">
+<div class="tx"><h3>Messy</h3><p>Mayo, lettuce, cocktail, cheddar slice, caramelized onion, beef</p></div><div class="pr"><b>$8</b><small>720,000 LBP</small></div></article>
+<article class="it"><img src="../assets/img/menu/nashville.jpg" alt="" loading="lazy">
+<div class="tx"><h3>Nashville Hot Chicken</h3></div><div class="pr"><b>$10</b><small>900,000 LBP</small></div></article>
+</div>
+<h2 class="cat"><span>Appetizers</span></h2><div class="list">
+<article class="it"><img src="../assets/img/menu/fries.jpg" alt="" loading="lazy">
+<div class="tx"><h3>Fries Box</h3></div><div class="pr"><b>$3</b><small>270,000 LBP</small></div></article>
+<article class="it"><img src="../assets/img/menu/platter.jpg" alt="" loading="lazy">
+<div class="tx"><h3>Curly Fries</h3></div><div class="pr"><b>$5</b><small>450,000 LBP</small></div></article>
+<article class="it noimg">
+<div class="tx"><h3>Wedges</h3></div><div class="pr"><b>$5</b><small>450,000 LBP</small></div></article>
+<article class="it"><img src="../assets/img/menu/platter.jpg" alt="" loading="lazy">
+<div class="tx"><h3>Onion Rings</h3></div><div class="pr"><b>$5</b><small>450,000 LBP</small></div></article>
+<article class="it"><img src="../assets/img/menu/platter.jpg" alt="" loading="lazy">
+<div class="tx"><h3>Mozzarella Sticks</h3></div><div class="pr"><b>$6</b><small>540,000 LBP</small></div></article>
+<article class="it"><img src="../assets/img/menu/platter.jpg" alt="" loading="lazy">
+<div class="tx"><h3>Cheddar Balls</h3></div><div class="pr"><b>$6</b><small>540,000 LBP</small></div></article>
+<article class="it noimg">
+<div class="tx"><h3>Mini Potato</h3></div><div class="pr"><b>$6</b><small>540,000 LBP</small></div></article>
+<article class="it noimg">
+<div class="tx"><h3>Batata Harra</h3></div><div class="pr"><b>$6</b><small>540,000 LBP</small></div></article>
+<article class="it"><img src="../assets/img/menu/platter.jpg" alt="" loading="lazy">
+<div class="tx"><h3>Mix Appetizers</h3></div><div class="pr"><b>$12</b><small>1,080,000 LBP</small></div></article>
+<article class="it noimg">
+<div class="tx"><h3>Rocca Salad</h3></div><div class="pr"><b>$6</b><small>540,000 LBP</small></div></article>
+<article class="it noimg">
+<div class="tx"><h3>Arabic Salad</h3></div><div class="pr"><b>$5</b><small>450,000 LBP</small></div></article>
+<article class="it noimg">
+<div class="tx"><h3>Tabbouleh</h3></div><div class="pr"><b>$6</b><small>540,000 LBP</small></div></article>
+<article class="it noimg">
+<div class="tx"><h3>Fattoush</h3></div><div class="pr"><b>$6</b><small>540,000 LBP</small></div></article>
+</div>
+<h2 class="cat"><span>Drinks &amp; Shisha</span></h2><div class="list">
+<article class="it noimg">
+<div class="tx"><h3>Soft Drink</h3></div><div class="pr"><b>$1.5</b><small>135,000 LBP</small></div></article>
+<article class="it noimg">
+<div class="tx"><h3>Water</h3></div><div class="pr"><b>$1</b><small>90,000 LBP</small></div></article>
+<article class="it noimg">
+<div class="tx"><h3>Sparkling Water</h3></div><div class="pr"><b>$2</b><small>180,000 LBP</small></div></article>
+<article class="it noimg">
+<div class="tx"><h3>Iced Tea</h3></div><div class="pr"><b>$2</b><small>180,000 LBP</small></div></article>
+<article class="it noimg">
+<div class="tx"><h3>Iced Coffee</h3></div><div class="pr"><b>$2</b><small>180,000 LBP</small></div></article>
+<article class="it noimg">
+<div class="tx"><h3>Shisha</h3></div><div class="pr"><b>$12</b><small>1,080,000 LBP</small></div></article>
+</div><p class="foot">Prices in USD with the LBP equivalent.</p>
+</section>
+</body>
+</html>
