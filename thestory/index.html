@@ -14,9 +14,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css">
-<link rel="stylesheet" href="assets/order.css">
-<link rel="stylesheet" href="assets/boo-order.css">
+<link rel="stylesheet" href="assets/site.css?v=1794525151">
+<link rel="stylesheet" href="assets/order.css?v=1794525151">
+<link rel="stylesheet" href="assets/boo-order.css?v=1794525151">
 </head>
 <body>
 
@@ -31,9 +31,13 @@
 </nav>
 
 <main class="page" data-page="home">
-<header class="hero" id="top">
+<header class="hero h2v" id="top">
   <canvas class="bgc" id="bgc" width="36" height="64" aria-hidden="true"></canvas>
-  <div class="stage"><video id="hv" muted autoplay playsinline preload="auto" poster="assets/img/hero-poster.jpg" src="assets/video/hero.mp4"></video><div class="dim"></div></div>
+  <div class="stage">
+    <video id="hv" muted autoplay playsinline preload="auto" poster="assets/img/hero-poster.jpg" src="assets/video/hero.mp4"></video>
+    <img class="still" src="assets/img/tray.jpg" alt="Boo Burger tray of happiness" loading="eager">
+    <div class="dim"></div>
+  </div>
   <div class="shade"></div>
   <div class="flash" id="flash"></div>
 
@@ -43,14 +47,18 @@
     </h1>
     <div class="after">
       <p data-k="heroP">A2wa tray of happiness bi kel Lebnen.</p>
-      <p class="sub" data-k="heroSub">Burgers, wings &amp; shrimps · 3 fro3a · fet7in 24/24</p>
+      <div class="hchips"><span class="live"><i></i><b data-k="h24">Fet7in 24/24</b></span><span data-k="hb1">Monot</span><span data-k="hb2">Batroun</span><span data-k="hb3">Saida</span></div>
       <div class="row">
         <a class="pill fire" href="https://fmcshops.com/booburger" target="_blank" rel="noopener" data-k="orderArrow">Order now →</a>
         <a class="pill ghost" href="menu/" data-nav data-k="seeMenu">See the menu</a>
       </div>
-      <button class="replay" id="replay" data-k="replay">↺ Again, with sound</button>
     </div>
   </div>
+
+  <button class="bubble" id="replay" aria-label="Replay with sound">
+    <span class="ring"><img src="assets/img/scream.jpg" alt=""><span class="pl"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></span>
+    <small data-k="replay">↺ Again, with sound</small>
+  </button>
 
   <button class="snd call" id="snd" aria-label="Sound">
     <svg id="sndIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"></svg>
@@ -232,7 +240,7 @@
   <a class="pill ghost" href="./#branches" data-nav data-k="callBr">Call a branch</a>
 </div>
 
-<script src="assets/order.js"></script>
-<script src="assets/app.js"></script>
+<script src="assets/order.js?v=1794525151"></script>
+<script src="assets/app.js?v=1794525151"></script>
 </body>
 </html>
