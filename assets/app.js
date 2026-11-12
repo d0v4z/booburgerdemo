@@ -8,7 +8,7 @@
   const L = {
     en: {
       nShow:'El Show', nMenu:'Menu', nBr:'Fro3na', order:'Order now', orderArrow:'Order now →', seeMenu:'Shouf el menu',
-      heroP:'A2wa tray of happiness bi kel Lebnen.',
+      heroP:'A2wa tray of happiness bi kel Lebnen.', h24:'Fet7in 24/24', hb1:'Monot', hb2:'Batroun', hb3:'Saida',
       heroSub:'Burgers, wings w shrimps · 3 fro3a · fet7in 24/24',
       replay:'↺ 3idha ma3 el sot', soundOn:'3alli el sot', soundAgain:'3idha ma3 el sot', mute:'Mute',
       ticker: tick(['Tray of happiness','Fet7in 24/24','Monot','Batroun','Saida','1KG wings + 1KG shrimps','Burgers','Shrimps']),
@@ -32,7 +32,7 @@
     },
     ar: {
       nShow:'الشو', nMenu:'المنيو', nBr:'الفروع', order:'اطلب هلّق', orderArrow:'اطلب هلّق ←', seeMenu:'شوف المنيو',
-      heroP:'أقوى <span class="en">tray of happiness</span> بكل لبنان.',
+      heroP:'أقوى <span class="en">tray of happiness</span> بكل لبنان.', h24:'فاتحين 24/24', hb1:'مونو', hb2:'البترون', hb3:'صيدا',
       heroSub:'برغر، <span class="en">wings</span> وقريدس · 3 فروع · فاتحين 24/24',
       replay:'↺ عيدها مع الصوت', soundOn:'علّي الصوت', soundAgain:'عيدها مع الصوت', mute:'سكّت',
       ticker: tick(['Tray of happiness','فاتحين 24/24','مونو','البترون','صيدا','كيلو wings','Burgers','Shrimps']),
@@ -120,7 +120,7 @@
 
   /* ---------- HERO ---------- */
   // Moments in the hero clip (seconds). The blur is baked into the video from 2.6s.
-  const T = { tray: 0.50, of: 1.66, happi: 1.95, ness: 2.82, after: 3.5, loopFrom: 4.5 };
+  const T = { tray: 0.50, of: 1.66, happi: 1.95, ness: 2.82, after: 3.05, loopFrom: 4.5 };
   const hero = document.getElementById('top'), v = document.getElementById('hv');
   const words = [...document.querySelectorAll('#tray .w1, #tray .of, #tray .hp1, #tray .hp2')];
   let userMuted = false;
@@ -169,12 +169,11 @@
   function showFinal() {
     intro = false; ended = true;
     words.forEach(w => w.classList.add('hit')); hero.classList.add('blurred');
-    v.muted = true; v.currentTime = T.loopFrom; setChip();
+    v.muted = true; v.pause(); setChip();
     cancelAnimationFrame(raf); loop();
   }
   v.addEventListener('ended', () => {
     intro = false; ended = true; v.muted = true; userMuted = false; setChip();
-    v.currentTime = T.loopFrom; v.play().catch(()=>{});
   });
   // Sound button: mute / unmute. If he never heard the shout, unmuting replays it from the start.
   snd.addEventListener('click', () => {
@@ -246,7 +245,7 @@
     document.querySelectorAll('[data-route]').forEach(a => a.classList.toggle('act', a.dataset.route === (anchor || next)));
     document.body.dataset.page = next; document.title = TITLES[next];
     if (next === 'home') {
-      if (!heroStarted) { heroStarted = true; start(true); } else if (!modal.classList.contains('on')) v.play().catch(() => {});
+      if (!heroStarted) { heroStarted = true; start(true); } else if (!modal.classList.contains('on') && !ended) v.play().catch(() => {});
     } else { v.pause(); }
     if (anchor === 'branches') {
       const go = () => { const b = document.getElementById('branches'); scrollTo({ top: b.getBoundingClientRect().top + scrollY - (innerWidth <= 820 ? 110 : 70), behavior: 'instant' }); };
@@ -278,7 +277,7 @@
   }
   function closeStory() {
     fullv.pause(); modal.classList.remove('on'); modal.setAttribute('aria-hidden', 'true'); document.body.style.overflow = '';
-    if (heroWasPlaying) v.play().catch(() => {});
+    if (heroWasPlaying && !ended) v.play().catch(() => {});
   }
   document.getElementById('playStory').addEventListener('click', openStory);
   document.getElementById('mclose').addEventListener('click', closeStory);

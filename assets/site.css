@@ -392,3 +392,57 @@ html[dir=rtl] .sc-dots{right:auto;left:16px}
   main[data-page="story"] .story{padding-top:140px}
   .show .reel{top:120px}
 }
+
+/* ===================== HERO v2 =====================
+   Act 1: the scream video plays with the words slamming in.
+   Act 2 (.blurred): video fades into the tray photo, a story bubble lets you replay it with sound. */
+.h2v .dim{display:none}
+.h2v .bgc{display:none!important}
+.h2v #hv{transition:opacity .9s ease}
+.h2v .still{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 45%;opacity:0;transform:scale(1.14);transition:opacity 1s ease,transform 8s cubic-bezier(.2,.7,.2,1)}
+.h2v.blurred #hv{opacity:0}
+.h2v.blurred .still{opacity:1;transform:scale(1)}
+.h2v .shade{background:linear-gradient(180deg,rgba(13,11,10,.6) 0%,rgba(13,11,10,0) 20%,rgba(13,11,10,0) 40%,rgba(13,11,10,.94) 86%)}
+.h2v .copy{padding-bottom:calc(26px + env(safe-area-inset-bottom))}
+.h2v .after{margin-top:16px}
+.h2v .after p{font-size:18px;max-width:28ch}
+.hchips{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 16px}
+.hchips span{display:inline-flex;align-items:center;gap:7px;padding:6px 12px;border-radius:999px;font-size:13px;font-weight:700;background:rgba(246,236,217,.1);border:1px solid rgba(246,236,217,.16);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.hchips .live{background:rgba(61,220,132,.14);border-color:rgba(61,220,132,.35);color:#7ff0b0}
+.hchips .live i{width:8px;height:8px;border-radius:50%;background:#3ddc84;box-shadow:0 0 0 0 rgba(61,220,132,.6);animation:livep 1.8s infinite}
+@keyframes livep{70%{box-shadow:0 0 0 7px rgba(61,220,132,0)}100%{box-shadow:0 0 0 0 rgba(61,220,132,0)}}
+.h2v .after .row .pill{flex:1 1 140px}
+@media (min-width:900px){.h2v .after .row .pill{flex:0 0 auto}}
+
+/* story bubble (replay with sound) */
+.bubble{position:absolute;z-index:4;top:calc(116px + env(safe-area-inset-top));left:16px;display:flex;flex-direction:column;align-items:center;gap:6px;
+  opacity:0;transform:scale(.5);pointer-events:none;transition:opacity .5s ease .5s,transform .6s cubic-bezier(.2,1.5,.4,1) .5s}
+html[dir=ltr] .bubble{left:auto;right:16px}
+.h2v.blurred .bubble{opacity:1;transform:none;pointer-events:auto}
+.bubble .ring{position:relative;width:78px;height:78px;border-radius:50%;padding:3px;display:block;isolation:isolate}
+.bubble .ring::before{content:"";position:absolute;inset:0;border-radius:50%;z-index:-1;background:conic-gradient(var(--amber),var(--flame),#ff2d55,var(--amber));animation:spin 3s linear infinite}
+.bubble .ring img{width:100%;height:100%;border-radius:50%;object-fit:cover;border:3px solid var(--ink)}
+.bubble .pl{position:absolute;right:-2px;bottom:-2px;width:28px;height:28px;border-radius:50%;background:var(--flame);color:#140a05;display:grid;place-items:center;border:3px solid var(--ink)}
+.bubble .pl svg{width:12px;height:12px;margin-left:2px}
+.bubble small{font-size:11px;font-weight:700;color:var(--cream);background:rgba(13,11,10,.6);padding:3px 9px;border-radius:999px;white-space:nowrap;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.bubble:active .ring{transform:scale(.94)}
+.bubble:hover .ring::before{animation-duration:1.2s}
+@keyframes spin{to{transform:rotate(360deg)}}
+.h2v.blurred .snd{opacity:0;pointer-events:none}
+.h2v .snd{transition:opacity .4s}
+
+@media (min-width:900px){
+  .h2v{background:radial-gradient(60vw 60vw at 78% 50%,rgba(255,90,31,.26),transparent 60%),radial-gradient(40vw 40vw at 10% 100%,rgba(255,176,0,.1),transparent 60%),var(--ink)}
+  html[dir=rtl] .h2v{background:radial-gradient(60vw 60vw at 22% 50%,rgba(255,90,31,.26),transparent 60%),var(--ink)}
+  .h2v .shade{display:none}
+  .h2v .stage{height:80vh;transition:transform .9s cubic-bezier(.2,.8,.2,1);box-shadow:0 50px 120px rgba(0,0,0,.7),0 0 0 1px rgba(255,90,31,.35)}
+  .h2v.blurred .stage{transform:translateY(-50%) rotate(-2.5deg)}
+  html[dir=rtl] .h2v.blurred .stage{transform:translateY(-50%) rotate(2.5deg)}
+  .h2v .copy{padding:0}
+  .bubble{top:auto;bottom:calc(10vh + 10px);left:calc(6vw + 45vh - 60px)}
+  html[dir=ltr] .bubble{right:calc(6vw + 45vh - 60px);left:auto}
+  .bubble .ring{width:112px;height:112px;padding:4px}
+  .bubble .pl{width:36px;height:36px}
+  .bubble small{font-size:12px}
+  .hchips{margin:16px 0 20px}
+}
